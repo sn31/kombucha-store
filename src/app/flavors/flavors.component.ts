@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Flavor } from '../models/flavors-model';
+import { FLAVORS } from '../models/mock-flavors-model';
 
 @Component({
   selector: 'app-flavors',
@@ -7,16 +8,16 @@ import { Flavor } from '../models/flavors-model';
   styleUrls: ['./flavors.component.css']
 })
 export class FlavorsComponent implements OnInit {
+  flavors = FLAVORS;
 
-  flavor: Flavor = {
-    name: 'chamomile',
-    brand: 'SkyeTown',
-    sugarContent: 80,
-    volume: 24
-  };
+  selectedFlavor: Flavor;
+  onSelect(flavor: Flavor): void {
+    this.selectedFlavor = flavor;
+  }
 
-
-  constructor() { }
+  constructor() { 
+   
+  }
 
   ngOnInit() {
   }

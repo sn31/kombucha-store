@@ -1,9 +1,18 @@
-<h2>{{flavor.name | uppercase}} Details</h2>
-<div><span>Brand: </span>{{flavor.brand}}</div>
-<div><span>Sugar Content: </span>{{flavor.sugarContent}}</div>
+<h2>Our Flavors</h2>
+<ul class="flavors">
+    <li *ngFor="let flavor of flavors" (click)="onSelect(flavor)">
+        <span class="komflav">{{flavor.name | uppercase}}</span> {{flavor.brand}}
+    </li>
+</ul>
 
-<div>
-    <label>name:
-        <input [(ngModel)]="flavor.name" placeholder="name">
-    </label>
+<div *ngIf="selectedFlavor">
+    <h2>{{selectedFlavor.name | uppercase}} Details</h2>
+    <div><span>Brand: </span>{{selectedFlavor.brand}}</div>
+    <div><span>Sugar Content: </span>{{selectedFlavor.sugarContent}}</div>
+
+    <div>
+        <label>name:
+            <input [(ngModel)]="selectedFlavor.name" placeholder="name">
+        </label>
+    </div>
 </div>
