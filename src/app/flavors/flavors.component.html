@@ -1,1 +1,9 @@
-{{flavor}}
+<h2>{{flavor.name | uppercase}} Details</h2>
+<div><span>Brand: </span>{{flavor.brand}}</div>
+<div><span>Sugar Content: </span>{{flavor.sugarContent}}</div>
+
+<div>
+    <label>name:
+        <input [(ngModel)]="flavor.name" placeholder="name">
+    </label>
+</div>
