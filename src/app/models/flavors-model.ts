@@ -6,4 +6,8 @@ export class Flavor{
         public sugarContent: number
         ) 
     {};
+    addFlavor(flavorList: Flavor[])
+    {
+        flavorList.push(this);
+    }
 }

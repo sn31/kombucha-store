@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Flavor } from '../models/flavors-model';
-import { FLAVORS } from '../models/mock-flavors-model';
+import { FlavorList } from '../models/mock-flavors-model';
 
 @Component({
   selector: 'app-flavors',
@@ -8,12 +8,17 @@ import { FLAVORS } from '../models/mock-flavors-model';
   styleUrls: ['./flavors.component.css']
 })
 export class FlavorsComponent implements OnInit {
-  flavors = FLAVORS;
+  newFlavorList = new FlavorList();
+  flavors = this.newFlavorList.flavorList;
+  
 
   selectedFlavor: Flavor;
   onSelect(flavor: Flavor): void {
     this.selectedFlavor = flavor;
-  }
+  };
+  
+  newFlavor: Flavor = new Flavor('Cantaloupe','ChanOppa',45);
+  
 
   constructor() { 
    
@@ -22,5 +27,7 @@ export class FlavorsComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+  AddNewFlavor() {
+    this.newFlavorList.addFlavor(this.newFlavor);
+  }
 }
