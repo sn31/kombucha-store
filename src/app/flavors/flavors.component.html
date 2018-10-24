@@ -3,6 +3,7 @@
     <li *ngFor="let flavor of flavors" (click)="onSelect(flavor)">
         <span class="komflav">{{flavor.name | uppercase}}</span> {{flavor.brand}}
         <button class="btn btn-warning"(click)="editFlavor(flavor)">Edit!</button>
+        <button class="btn btn-success"(click)="soldFlavor(flavor)">Sold a pint!</button>
     </li>
 </ul>
 
@@ -10,11 +11,12 @@
     <h2>{{selectedFlavor.name | uppercase}} Details</h2>
     <div><span>Brand: </span>{{selectedFlavor.brand}}</div>
     <div><span>Sugar Content: </span>{{selectedFlavor.sugarContent}}</div>
+    <div><span>Pints Available: </span>{{selectedFlavor.volume}}</div>
     
 </div>
 
 <div *ngIf="selectedEditFlavor">
-    <h2>{{selectedFlavor.name | uppercase}} Edit Details</h2>
+    <h2>{{selectedEditFlavor.name | uppercase}} Edit Details</h2>
     
     <div>
         <label>Name:

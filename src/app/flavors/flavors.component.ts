@@ -15,7 +15,10 @@ export class FlavorsComponent{
   selectedFlavor: Flavor;
   onSelect(flavor: Flavor): void {
     this.selectedFlavor = flavor;
+    
   };
+
+  // selectedFlavor = null;
   
   
   addNewFlavor(name,brand,sugarContent) {
@@ -23,14 +26,29 @@ export class FlavorsComponent{
     this.newFlavorList.addFlavor(newFlavor);
   }
 
+
   selectedEditFlavor: Flavor;
   editFlavor(clickedFlavor)
   {
     this.selectedEditFlavor = clickedFlavor;
     this.selectedFlavor = null;
+    
   }
   finishedEditing() {
-    this.selectedFlavor = null;
+    this.selectedEditFlavor = null;
+  }
+  // hide()
+  // {
+  //   if (this.selectedFlavor !== null)
+  //   {
+  //     return "ng-hide";
+  //   }
+  //   return "ng-show";
+  // }
+
+  soldFlavor(clickedFlavor)
+  {
+    clickedFlavor.volume--;
   }
 
   constructor() { 
@@ -39,6 +57,8 @@ export class FlavorsComponent{
 
   ngOnInit() {
   }
+
+
 
  
 }
