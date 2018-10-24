@@ -10,7 +10,7 @@ import { FlavorList } from '../models/mock-flavors-model';
 export class FlavorsComponent{
   newFlavorList = new FlavorList();
   flavors = this.newFlavorList.flavorList;
-  
+  addNew = false;
 
   selectedFlavor: Flavor;
   onSelect(flavor: Flavor): void {
