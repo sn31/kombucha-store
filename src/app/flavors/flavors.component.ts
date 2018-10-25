@@ -42,6 +42,20 @@ export class FlavorsComponent{
     clickedFlavor.volume--;
   }
 
+  sugarLevel(flavor:Flavor)
+  {
+    if (flavor.sugarContent > 30)
+    {
+      return "bg-danger"
+    }
+    else if (flavor.sugarContent < 10)
+    {
+      return "bg-success";
+    }
+    else {
+      return "bg-info";
+    }
+  }
   constructor() { 
    
   }
