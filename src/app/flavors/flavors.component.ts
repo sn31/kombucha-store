@@ -20,8 +20,8 @@ export class FlavorsComponent{
   // selectedFlavor = null;
   
   
-  addNewFlavor(name,brand,sugarContent) {
-    let newFlavor = new Flavor(name,brand,sugarContent);
+  addNewFlavor(name,brand,sugarContent,price) {
+    let newFlavor = new Flavor(name,brand,sugarContent,price);
     this.newFlavorList.addFlavor(newFlavor);
   }
 
@@ -37,14 +37,7 @@ export class FlavorsComponent{
     this.selectedEditFlavor = null;
     this.editing = false;
   }
-  // hide()
-  // {
-  //   if (this.selectedFlavor !== null)
-  //   {
-  //     return "ng-hide";
-  //   }
-  //   return "ng-show";
-  // }
+  
 
   soldFlavor(clickedFlavor)
   {

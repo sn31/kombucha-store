@@ -3,7 +3,8 @@ export class Flavor{
     constructor(
         public name: string, 
         public brand: string, 
-        public sugarContent: number
+        public sugarContent: number,
+        public price: number
         ) 
     {};
     
