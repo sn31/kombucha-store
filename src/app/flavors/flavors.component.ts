@@ -11,11 +11,10 @@ export class FlavorsComponent{
   newFlavorList = new FlavorList();
   flavors = this.newFlavorList.flavorList;
   addNew = false;
-
+  editing = false;
   selectedFlavor: Flavor;
   onSelect(flavor: Flavor): void {
     this.selectedFlavor = flavor;
-    
   };
 
   // selectedFlavor = null;
@@ -31,11 +30,12 @@ export class FlavorsComponent{
   editFlavor(clickedFlavor)
   {
     this.selectedEditFlavor = clickedFlavor;
-    this.selectedFlavor = null;
+    this.editing = true;
     
   }
   finishedEditing() {
     this.selectedEditFlavor = null;
+    this.editing = false;
   }
   // hide()
   // {
