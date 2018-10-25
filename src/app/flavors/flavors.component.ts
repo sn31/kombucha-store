@@ -13,8 +13,10 @@ export class FlavorsComponent{
   addNew = false;
   editing = false;
 
-  // selectedFlavor = null;
-  
+  sortDirection: string = "ascending";
+  onChange(optionFromMenu) {
+    this.sortDirection = optionFromMenu;
+  }
   
   addNewFlavor(name,brand,sugarContent,price) {
     let newFlavor = new Flavor(name,brand,sugarContent,price);

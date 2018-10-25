@@ -8,6 +8,10 @@
     </div>
     <div class="col">
         <h5>Price</h5>
+        <select (change)="onChange($event.target.value)">
+            <option value="ascending">ASC</option>
+            <option value="descending">DSC</option>
+          </select>
     </div>
     <div class="col">
         <h5>Sugar Content</h5>
@@ -19,7 +23,7 @@
     <div class="col"></div>
 </div>
 
-<div *ngFor="let flavor of flavors" class="row">
+<div *ngFor="let flavor of flavors | pricesort:sortDirection" class="row">
     <div class="col">
         <p>
             <span class="komflav">{{flavor.name}}</span>
