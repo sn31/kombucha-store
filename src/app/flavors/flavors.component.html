@@ -1,9 +1,9 @@
 <h2>Our Flavors</h2>
 <ul class="flavors">
     <li *ngFor="let flavor of flavors" (click)="onSelect(flavor)">
-        <span class="komflav">{{flavor.name | uppercase}}</span> {{flavor.brand}}
-        <button class="btn btn-warning"(click)="editFlavor(flavor)">Edit!</button>
-        <button class="btn btn-success"(click)="soldFlavor(flavor)">Sold a pint!</button>
+        <span class="komflav">{{flavor.name | uppercase}}</span>
+        <button class="btn btn-warning mr-3 mb-1"(click)="editFlavor(flavor)">Edit</button>
+        <button class="btn btn-success mr-3 mb-1"(click)="soldFlavor(flavor)">Sold a pint!</button>
     </li>
 </ul>
 
@@ -35,10 +35,10 @@
             <input [(ngModel)]="selectedEditFlavor.sugarContent" placeholder="sugar">
         </label>
     </div>
-    <button (click)="finishedEditing()">Done</button>
-</div>
+    <button class="btn btn-dark"(click)="finishedEditing()">Done</button>
+</div><br>
 
-<button (click) = "addNew = true">Add A New Flavor</button>
+<button class="btn btn-info" (click) = "addNew = true">Add A New Flavor</button>
 <div *ngIf = "addNew">
     <h3>Add a new Flavor</h3>
     <form>
