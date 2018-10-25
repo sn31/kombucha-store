@@ -12,10 +12,6 @@ export class FlavorsComponent{
   flavors = this.newFlavorList.flavorList;
   addNew = false;
   editing = false;
-  selectedFlavor: Flavor;
-  onSelect(flavor: Flavor): void {
-    this.selectedFlavor = flavor;
-  };
 
   // selectedFlavor = null;
   

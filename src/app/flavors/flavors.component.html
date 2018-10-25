@@ -1,30 +1,58 @@
 <h2>Our Flavors</h2>
-<ul class="flavors">
-    <li *ngFor="let flavor of flavors" (click)="onSelect(flavor)">
-        <span class="komflav">{{flavor.name | uppercase}}</span>
-        <button class="btn btn-warning mr-3 mb-1"(click)="editFlavor(flavor)">Edit</button>
-        <button class="btn btn-success mr-3 mb-1"(click)="soldFlavor(flavor)">Sold a pint!</button>
-    </li>
-</ul>
-
-<div *ngIf="selectedFlavor && editing == false">
-    <h2>{{selectedFlavor.name | uppercase}} Details</h2>
-    <div><span>Brand: </span>{{selectedFlavor.brand}}</div>
-    <div><span>Price: </span>{{selectedFlavor.price}}</div>
-    <div><span>Sugar Content: </span>{{selectedFlavor.sugarContent}}</div>
-    <div><span>Pints Available: </span>{{selectedFlavor.volume}}</div>
-    
+<div class="row">
+    <div class="col">
+        <h5>Name</h5>
+    </div>
+    <div class="col">
+        <h5>Brand</h5>
+    </div>
+    <div class="col">
+        <h5>Price</h5>
+    </div>
+    <div class="col">
+        <h5>Sugar Content</h5>
+    </div>
 </div>
 
-<div *ngIf="selectedEditFlavor && editing == true">
+<div *ngFor="let flavor of flavors" class="row">
+    <div class="col">
+        <p>
+            <span class="komflav">{{flavor.name}}</span>
+        </p>
+    </div>
+    <div class="col">
+        <p>
+            <span class="komflav">{{flavor.brand}}</span>
+        </p>
+    </div>
+    <div class="col">
+        <p>
+            <span class="komflav">{{flavor.price}}</span>
+        </p>
+    </div>
+    <div class="col">
+        <p>
+            <span class="komflav">{{flavor.sugarContent}}</span>
+        </p>
+    </div>
+    <div class="col">
+        <button class="btn btn-warning mr-3 mb-1" (click)="editFlavor(flavor)">Edit</button>
+    </div>
+    <div class="col">
+        <button class="btn btn-success mr-3 mb-1" (click)="soldFlavor(flavor)">Sold a pint!</button>
+    </div>
+</div>
+
+
+<div *ngIf="selectedEditFlavor">
     <h2>{{selectedEditFlavor.name | uppercase}} Edit Details</h2>
-    
+
     <div>
         <label>Name:
             <input [(ngModel)]="selectedEditFlavor.name" placeholder="name">
         </label>
     </div>
-   
+
     <div>
         <label>Brand:
             <input [(ngModel)]="selectedEditFlavor.brand" placeholder="brand">
@@ -40,33 +68,33 @@
             <input [(ngModel)]="selectedEditFlavor.sugarContent" placeholder="sugar">
         </label>
     </div>
-    <button class="btn btn-dark"(click)="finishedEditing()">Done</button>
+    <button class="btn btn-dark" (click)="finishedEditing()">Done</button>
 </div><br>
 
-<button class="btn btn-info" (click) = "addNew = true">Add A New Flavor</button>
-<div *ngIf = "addNew">
+<button class="btn btn-info" (click)="addNew = true">Add A New Flavor</button>
+<div *ngIf="addNew">
     <h3>Add a new Flavor</h3>
     <form>
         <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" class="form-control" #name required>
+            <label for="name">Name</label>
+            <input type="text" class="form-control" #name required>
         </div>
-   
+
         <div class="form-group">
-          <label for="brand">Brand</label>
-          <input type="text" class="form-control" #brand>
+            <label for="brand">Brand</label>
+            <input type="text" class="form-control" #brand>
         </div>
         <div class="form-group">
             <label for="price">Price</label>
             <input type="number" class="form-control" #price>
-          </div>
+        </div>
 
         <div class="form-group">
             <label for="sugar">Sugar</label>
             <input type="number" class="form-control" #sugar>
-          </div>
-   
+        </div>
+
         <button type="submit" class="btn btn-success" (click)="addNewFlavor(name.value,brand.value,sugar.value,price.value);addNew = false">Submit</button>
-   
-      </form>
+
+    </form>
 </div>
